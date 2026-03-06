@@ -2,31 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Fase D - Integración CAD</title>
+    <title>Fase D - Integración de Modelo CAD</title>
     <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
 </head>
 <body>
     <a-scene>
+        
         <a-assets>
-            <a-asset-item id="modelo-meca" src="EnsamblajeLabo.glb"></a-asset-item>
+            <a-asset-item id="modelo-cad" src="EnsamblajeLabo.glb"></a-asset-item>
         </a-assets>
+
+        <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
+        <a-light type="directional" position="2 4 3" intensity="0.8" target="#pez"></a-light>
 
         <a-sky color="#ecf0f1"></a-sky>
         <a-plane rotation="-90 0 0" width="30" height="30" color="#7f8c8d"></a-plane>
 
-        <a-light type="ambient" color="#ffffff" intensity="0.8"></a-light>
-        <a-light type="directional" position="1 4 2" intensity="0.6" target="#pez"></a-light>
-
         <a-entity 
             id="pez"
-            gltf-model="#modelo-meca" 
-            position="0 1.2 -5" 
-            scale="100 100 100"
-            material="color: #3498db; metallic: 0.6; roughness: 0.4">
+            gltf-model="#modelo-cad" 
+            position="0 5.5 -5" 
+            scale="100 100 100">
         </a-entity>
 
-        <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
-        
+        <a-entity position="0 1.6 0">
+            <a-camera look-controls wasd-controls></a-camera>
+        </a-entity>
+
     </a-scene>
 </body>
 </html>
